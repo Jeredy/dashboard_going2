@@ -4,10 +4,6 @@ interface PropsScore {
   positionUp: boolean;
 }
 
-interface PropsContainer {
-  color: string;
-}
-
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -15,9 +11,9 @@ export const Container = styled.div`
   flex-direction: column;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
   width: 250px;
-  height: 120px;
+  height: 140px;
   background: #fff;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   margin: 0.8rem;
   position: relative;
 `;

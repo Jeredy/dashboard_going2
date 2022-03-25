@@ -11,7 +11,6 @@ export const Container = styled.div`
 export const CardsContainer = styled.div`
   display: flex;
   width: 100%;
-  padding: 1rem 0rem;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;

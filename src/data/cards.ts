@@ -39,7 +39,7 @@ export const MAIN_CARDS: CardModel[] = [
   },
 ];
 
-export const SECONDARY_CARDS: CardModel[] = [
+export const SECONDARY_CARDS_ONE: CardModel[] = [
   {
     id: 10,
     title: "1987 2",
@@ -76,9 +76,12 @@ export const SECONDARY_CARDS: CardModel[] = [
     link: "Nathan F.",
     color: "hsl(348, 97%, 39%)",
   },
+];
+
+export const SECONDARY_CARDS_TWO: CardModel[] = [
   {
     id: 101,
-    title: "1987 2",
+    title: "198 >> 2",
     score: "12 Today",
     positionUp: true,
     icon: "facebook",
@@ -87,7 +90,7 @@ export const SECONDARY_CARDS: CardModel[] = [
   },
   {
     id: 201,
-    title: "1044",
+    title: "104 >>4",
     score: "12 Today",
     positionUp: true,
     icon: "twitter",
@@ -96,7 +99,7 @@ export const SECONDARY_CARDS: CardModel[] = [
   },
   {
     id: 301,
-    title: "11k",
+    title: "11k >>",
     score: "12 Today",
     positionUp: true,
     icon: "instagram",
@@ -105,7 +108,7 @@ export const SECONDARY_CARDS: CardModel[] = [
   },
   {
     id: 401,
-    title: "8239",
+    title: "823 >>9",
     score: "12 Today",
     positionUp: false,
     icon: "youtube",

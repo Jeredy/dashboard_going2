@@ -17,7 +17,7 @@ export const Container = styled.div<PropsContainer>`
   width: 200px;
   height: 200px;
   background: #fff;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   margin: 0.8rem;
   position: relative;
 

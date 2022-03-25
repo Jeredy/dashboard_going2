@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
         font-family: 'Inter', sans-serif;
         font-family: 'Montserrat', sans-serif;
         font-weight: 400;
-        overflow: hidden;
+        // overflow-x: hidden;
     }
 `;
 export default GlobalStyles;
