@@ -5,5 +5,5 @@ export interface CardModel {
   positionUp: boolean;
   icon: string;
   link: string;
-
+  color: string;
 }

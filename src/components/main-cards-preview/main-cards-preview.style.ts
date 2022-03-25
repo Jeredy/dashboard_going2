@@ -3,19 +3,17 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80vw;
+  width: 100%;
+  max-width: 1140px;
   align-items: center;
-  height: 400px;
-  background: blue;
 `;
 
 export const CardsContainer = styled.div`
   display: flex;
-  width: 80vw;
-  padding: 2rem 0rem;
+  width: 100%;
+  padding: 1rem 0rem;
   align-items: center;
   justify-content: center;
-  background: green;
 `;
 
 export const Title = styled.p`

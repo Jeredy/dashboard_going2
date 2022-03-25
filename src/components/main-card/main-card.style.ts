@@ -4,7 +4,11 @@ interface PropsScore {
   positionUp: boolean;
 }
 
-export const Container = styled.div`
+interface PropsContainer {
+  color: string;
+}
+
+export const Container = styled.div<PropsContainer>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +17,7 @@ export const Container = styled.div`
   width: 200px;
   height: 200px;
   background: #fff;
-  border-radius: 0.3rem;
+  border-radius: 0.4rem;
   margin: 0.8rem;
   position: relative;
 
@@ -21,39 +25,53 @@ export const Container = styled.div`
     display: block;
     content: "";
     width: 100%;
-    height: 0.3rem;
+    height: 0.28rem;
     position: absolute;
-    background-image: linear-gradient(90deg, red, blue, black);
+    background: ${({ color }) => color ?? "#fff"};
     top: 0;
-    border-top-left-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
   }
 `;
 
 export const Title = styled.p`
-  font-weight: 400;
+  font-weight: 700;
   color: #282828;
-  font-size: 2.3rem;
+  font-size: 2.7rem;
 `;
 
 export const Text = styled.p`
   font-weight: 200;
   color: #484848;
-  font-size: 1.9rem;
+  font-size: 1.2rem;
   text-transform: capitalize;
 `;
 
 export const ScoreContainer = styled.div`
   display: flex;
   position: absolute;
-  bottom: 1rem;
-  align-items: center;  
+  bottom: 1.5rem;
+  align-items: center;
 `;
 
 export const Score = styled.p<PropsScore>`
-  font-weight: 200;
   color: ${({ positionUp }) => (positionUp ? "green" : "red")};
-  font-size: 1.1rem;
-  margin-left: .2rem;
+  font-size: 0.8rem;
+  margin-left: 0.2rem;
+  text-transform: capitalize;
+`;
+
+export const SocialContainer = styled.div`
+  display: flex;
+  position: absolute;
+  top: 1.5rem;
+  align-items: center;
+`;
+
+export const Social = styled.p`
+  font-weight: 200;
+  color: #484848;
+  font-size: 0.9rem;
+  margin-left: 0.4rem;
   text-transform: capitalize;
 `;
