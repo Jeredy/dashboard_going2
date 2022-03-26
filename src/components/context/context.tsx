@@ -18,7 +18,10 @@ const INITIAL_STATE = {
   theme: true,
 };
 
-const Context = React.createContext<PropsContext>(INITIAL_STATE);
+const Context = React.createContext<PropsContext>({
+  ...INITIAL_STATE,
+  toggleTheme: () => {},
+});
 
 const Reducer = (state: PropsContext, action: PropsAction) => {
   switch (action.type) {
@@ -43,7 +46,10 @@ const Provider = (props: LayoutProps) => {
 
   return (
     <Context.Provider
-      value={{ theme: state.theme, toggleTheme: toggleTheme }}
+      value={{
+        theme: state.theme,
+        toggleTheme: toggleTheme,
+      }}
       {...props}
     />
   );

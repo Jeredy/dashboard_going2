@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
   max-width: 1140px;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const CardsContainer = styled.div`
@@ -14,10 +14,5 @@ export const CardsContainer = styled.div`
   padding: 1rem 0rem;
   align-items: center;
   justify-content: center;
-`;
-
-export const Title = styled.p`
-  font-weight: 400;
-  color: #282828;
-  font-size: 2.3rem;
+  flex-wrap: wrap;
 `;

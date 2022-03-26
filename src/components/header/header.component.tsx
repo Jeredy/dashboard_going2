@@ -1,4 +1,5 @@
 import React from "react";
+import { TOTAL_FOLLOWERS } from "../../data/cards";
 
 import ToggleThemeButton from "../button/toggle-theme-button.styles";
 import { Context } from "../context/context";
@@ -19,11 +20,11 @@ const Header: React.FC = () => {
     <Container>
       <TextContainer>
         <Title>Social Midia Dashboard</Title>
-        <Text>Total Followers: 23,004</Text>
+        <Text>{`Total Followers: ${TOTAL_FOLLOWERS}`}</Text>
       </TextContainer>
-      <ButtonContainer onClick={toggleTheme}>
+      <ButtonContainer>
         <TextTheme>Dark Theme</TextTheme>
-        <ToggleThemeButton toggleSide={theme} />
+        <ToggleThemeButton toggleSide={theme} onClick={toggleTheme} />
       </ButtonContainer>
     </Container>
   );

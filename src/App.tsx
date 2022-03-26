@@ -19,7 +19,7 @@ import Header from "./components/header/header.component";
 import { Container } from "./App.styles";
 
 const App: React.FC = () => {
-  const { theme } = React.useContext(Context);
+  const context = React.useContext(Context);
   const [mainCards, setMainCards] = React.useState<CardModel[]>(MAIN_CARDS);
   const [secondaryCardsOne, setSecondaryCardsOne] =
     React.useState<CardModel[]>(SECONDARY_CARDS_ONE);
@@ -105,8 +105,8 @@ const App: React.FC = () => {
 
   return (
     <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
-      <ThemeProvider theme={theme ? lightTheme : darkTheme}>
-        <GlobalStyles />  
+      <ThemeProvider theme={context.theme ? lightTheme : darkTheme}>
+        <GlobalStyles />
         <Container>
           <Header />
           <MainCardsPreview cards={mainCards} setMainCards={setMainCards} />

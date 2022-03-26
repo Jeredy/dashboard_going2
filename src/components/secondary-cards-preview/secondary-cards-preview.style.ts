@@ -15,10 +15,21 @@ export const CardsContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+export const TitleContainer = styled.div`
+  display: flex;
+  margin: 0.2rem 0rem 0.5rem 0rem;
+  width: 100%;
+  padding-left: .6rem;
+
+  @media screen and (max-width: 865px) {
+    width: 85%;
+  }
+`;
+
 export const Title = styled.p`
   margin-right: auto;
   font-weight: 700;
   font-size: 1rem;
   text-transform: capitalize;
-  margin-left: .7rem;
+  color: ${({ theme }) => theme.textTheme};
 `;

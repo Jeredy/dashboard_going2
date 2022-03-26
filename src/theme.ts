@@ -16,6 +16,7 @@ declare module "styled-components" {
     toggleButtonCircle: string;
     textTheme: string;
     headerTitle: string;
+    headerDivider: string;
     scoreColorUp: string;
     scoreColorDown: string;
   }
@@ -42,6 +43,7 @@ export const lightTheme: DefaultTheme = {
   toggleButtonCircle: "#f0f3fa",
   headerTitle: "#44474e",
   textTheme: "#65687b",
+  headerDivider: "#373a4d",
   scoreColorUp: score.scoreColorUp,
   scoreColorDown: score.scoreColorDown,
 };
@@ -62,6 +64,7 @@ export const darkTheme: DefaultTheme = {
   toggleButtonShadow: "0px 1px 3px rgba(123.3, 142.7, 220.3, .4)",
   toggleButtonCircle: "#343957",
   headerTitle: "#fff",
+  headerDivider: "#898c9b",
   textTheme: "#fff",
   scoreColorUp: score.scoreColorUp,
   scoreColorDown: score.scoreColorDown,

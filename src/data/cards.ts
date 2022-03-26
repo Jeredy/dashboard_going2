@@ -1,5 +1,7 @@
 import { CardModel } from "../models/cardModel";
 
+export const TOTAL_FOLLOWERS:string = "23,004";
+
 export const MAIN_CARDS: CardModel[] = [
   {
     id: 1,

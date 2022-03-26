@@ -24,6 +24,10 @@ export const Container = styled.div`
     transform: scale(1.02);
     border: 1px solid #fff;
   }
+
+  @media screen and (max-width: 480px) {
+    width: 85%;
+  }
 `;
 
 export const SubContainer = styled.div`

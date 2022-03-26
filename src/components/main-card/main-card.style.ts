@@ -40,6 +40,10 @@ export const Container = styled.div<PropsContainer>`
     border-top-left-radius: 0.2rem;
     border-top-right-radius: 0.2rem;
   }
+
+  @media screen and (max-width: 480px) {
+    width: 85%;
+  }
 `;
 
 export const Title = styled.p`

@@ -1,9 +1,10 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 
-import { Container, CardsContainer, Title } from "./main-cards-preview.style";
+import { Container, CardsContainer } from "./main-cards-preview.style";
 import MainCard from "../main-card/main-card.component";
 import { CardModel } from "../../models/cardModel";
+import { Context } from "../context/context";
 
 interface Props {
   cards: CardModel[];
@@ -13,7 +14,10 @@ interface Props {
 const MainCardsPreview: React.FC<Props> = ({ cards, setMainCards }) => {
   return (
     <Container>
-      <Droppable droppableId="mainCards" direction="horizontal">
+      <Droppable
+        droppableId="mainCards"
+        direction={window.innerWidth > 600 ? "horizontal" : "vertical"}
+      >
         {(provided) => (
           <CardsContainer ref={provided.innerRef} {...provided.droppableProps}>
             {cards.map((data, index) => (
