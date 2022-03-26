@@ -9,9 +9,15 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         font-family: 'Inter', sans-serif;
-        font-family: 'Montserrat', sans-serif;
         font-weight: 400;
-        // overflow-x: hidden;
+        font-size: .9rem;
+        overflow-x: hidden;
+        
+        p, h1 {
+            color: #65687b;
+            text-shadow: 0px 1px 3px rgba(94.1, 95.3, 98, 0.17);
+        }
+
     }
 `;
 export default GlobalStyles;

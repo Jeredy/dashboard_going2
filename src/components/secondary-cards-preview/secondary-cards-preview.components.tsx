@@ -24,6 +24,7 @@ const SecondaryCardsPreview: React.FC<Props> = ({
 }) => {
   return (
     <Container>
+      <Title> Overview Today</Title>
       <Droppable droppableId="secondaryCards_one" direction="horizontal">
         {(provided) => (
           <CardsContainer ref={provided.innerRef} {...provided.droppableProps}>
@@ -34,7 +35,7 @@ const SecondaryCardsPreview: React.FC<Props> = ({
                 setSecondaryCards={setSecondaryCardsOne}
               />
             ))}
-            {provided.placeholder}
+            {/* {provided.placeholder} */}
           </CardsContainer>
         )}
       </Droppable>
@@ -48,7 +49,7 @@ const SecondaryCardsPreview: React.FC<Props> = ({
                 setSecondaryCards={setSecondaryCardsTwo}
               />
             ))}
-            {provided.placeholder}
+            {/* {provided.placeholder} */}
           </CardsContainer>
         )}
       </Droppable>

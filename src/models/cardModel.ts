@@ -3,7 +3,8 @@ export interface CardModel {
   title: string;
   score: string;
   positionUp: boolean;
+  description?: string;
   icon: string;
-  link: string;
+  link?: string;
   color: string;
 }

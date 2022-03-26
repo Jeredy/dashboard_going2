@@ -11,6 +11,7 @@ import {
   SECONDARY_CARDS_TWO,
 } from "./data/cards";
 import GlobalStyles from "./GlobalStyles";
+import Header from "./components/header/header.component";
 
 const App: React.FC = () => {
   const [mainCards, setMainCards] = React.useState<CardModel[]>(MAIN_CARDS);
@@ -100,6 +101,7 @@ const App: React.FC = () => {
     <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
       <GlobalStyles />
       <Container>
+        <Header />
         <MainCardsPreview cards={mainCards} setMainCards={setMainCards} />
         <SecondaryCardsPreview
           cardsOne={secondaryCardsOne}

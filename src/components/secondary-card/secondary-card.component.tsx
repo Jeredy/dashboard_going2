@@ -34,7 +34,7 @@ const SecondaryCard: React.FC<Props> = ({ card, index }) => {
           ref={provided.innerRef}
         >
           <SubContainer>
-            <Text>Followers2</Text>
+            <Text>{card.description}</Text>
             <SocialContainer>{icons(card.icon)}</SocialContainer>
           </SubContainer>
           <SubContainer>

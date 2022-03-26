@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
   max-width: 1140px;
   align-items: center;
 `;
@@ -17,7 +16,9 @@ export const CardsContainer = styled.div`
 `;
 
 export const Title = styled.p`
-  font-weight: 400;
-  color: #282828;
-  font-size: 2.3rem;
+  margin-right: auto;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin-left: .7rem;
 `;
