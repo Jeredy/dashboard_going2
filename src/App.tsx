@@ -8,11 +8,6 @@ import MainCardsPreview from "./components/main-cards-preview/main-cards-preview
 import SecondaryCardsPreview from "./components/secondary-cards-preview/secondary-cards-preview.components";
 
 import { CardModel } from "./models/cardModel";
-import {
-  MAIN_CARDS,
-  SECONDARY_CARDS_ONE,
-  SECONDARY_CARDS_TWO,
-} from "./data/cards";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./components/header/header.component";
 
@@ -20,11 +15,6 @@ import { Container } from "./App.styles";
 
 const App: React.FC = () => {
   const context = React.useContext(Context);
-  const [mainCards, setMainCards] = React.useState<CardModel[]>(MAIN_CARDS);
-  const [secondaryCardsOne, setSecondaryCardsOne] =
-    React.useState<CardModel[]>(SECONDARY_CARDS_ONE);
-  const [secondaryCardsTwo, setSecondaryCardsTwo] =
-    React.useState<CardModel[]>(SECONDARY_CARDS_TWO);
 
   const reorder = (list: CardModel[], startIndex: number, endIndex: number) => {
     const result = Array.from(list);
@@ -47,35 +37,36 @@ const App: React.FC = () => {
 
     const editData =
       source.droppableId === "mainCards"
-        ? mainCards
+        ? context.mainCards
         : source.droppableId === "secondaryCards_one"
-        ? secondaryCardsOne
-        : secondaryCardsTwo;
+        ? context.secondaryCardsOne
+        : context.secondaryCardsTwo;
 
     const items = reorder(editData, source.index, destination.index);
 
-    /* ORDERING DATA HORIZONTALY */
+    /* ORDERING DATA HORIZONTALLY */
     if (source.droppableId === "mainCards") {
-      return setMainCards(items);
+      return context.setMainCards?.(items);
     }
 
     if (
       source.droppableId === "secondaryCards_one" &&
       destination.droppableId === "secondaryCards_one"
     ) {
-      return setSecondaryCardsOne(items);
+      return context.setSecondaryCardsOne?.(items);
     }
 
     if (
       source.droppableId === "secondaryCards_two" &&
       destination.droppableId === "secondaryCards_two"
     ) {
-      return setSecondaryCardsTwo(items);
+      return context.setSecondaryCardsTwo?.(items);
     }
 
+    /* ORDERING DATA VERTICALLY*/
     let add,
-      dataOne = secondaryCardsOne,
-      dataTwo = secondaryCardsTwo;
+      dataOne = context.secondaryCardsOne,
+      dataTwo = context.secondaryCardsTwo;
 
     if (source.droppableId === "secondaryCards_one") {
       /*remove the source index from dataOne*/
@@ -99,8 +90,8 @@ const App: React.FC = () => {
       dataTwo.splice(dataTwo.length - 1, 1);
     }
 
-    setSecondaryCardsOne(dataOne);
-    setSecondaryCardsTwo(dataTwo);
+    context.setSecondaryCardsOne?.(dataOne);
+    context.setSecondaryCardsTwo?.(dataTwo);
   };
 
   return (
@@ -109,13 +100,8 @@ const App: React.FC = () => {
         <GlobalStyles />
         <Container>
           <Header />
-          <MainCardsPreview cards={mainCards} setMainCards={setMainCards} />
-          <SecondaryCardsPreview
-            cardsOne={secondaryCardsOne}
-            setSecondaryCardsOne={setSecondaryCardsOne}
-            cardsTwo={secondaryCardsTwo}
-            setSecondaryCardsTwo={setSecondaryCardsTwo}
-          />
+          <MainCardsPreview />
+          <SecondaryCardsPreview />
         </Container>
       </ThemeProvider>
     </DragDropContext>

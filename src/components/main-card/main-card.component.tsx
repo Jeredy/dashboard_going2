@@ -4,7 +4,6 @@ import { CardModel } from "../../models/cardModel";
 
 import { ReactComponent as ReactLogoUp } from "../../assets/images/icon-up.svg";
 import { ReactComponent as ReactLogoDown } from "../../assets/images/icon-down.svg";
-import { FacebookIcon } from "../icons/facebook";
 import icons from "../icons";
 
 import {
@@ -20,10 +19,10 @@ import {
 interface Props {
   card: CardModel;
   index: number;
-  setMainCards: React.Dispatch<React.SetStateAction<CardModel[]>>;
 }
 
 const MainCard: React.FC<Props> = ({ card, index }) => {
+  
   return (
     <Draggable draggableId={card.id.toString()} index={index} key={card.id}>
       {(provided) => (

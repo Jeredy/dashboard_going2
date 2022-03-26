@@ -15,13 +15,11 @@ import {
   ScoreContainer,
   Score,
   SocialContainer,
-  Social,
 } from "./secondary-card.style";
 
 interface Props {
   card: CardModel;
   index: number;
-  setSecondaryCards: React.Dispatch<React.SetStateAction<CardModel[]>>;
 }
 
 const SecondaryCard: React.FC<Props> = ({ card, index }) => {

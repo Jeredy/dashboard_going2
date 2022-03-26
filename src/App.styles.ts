@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   min-height: 100vh;
+  min-width: 100vw;
   background: ${({ theme }) => theme.backgroundColor};
   position: relative;
   padding: 1.5rem 0rem 3rem 0rem;
