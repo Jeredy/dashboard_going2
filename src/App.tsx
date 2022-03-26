@@ -1,6 +1,9 @@
 import React from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
-import { Container } from "./App.styles";
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./theme";
+
+import { Context } from "./components/context/context";
 import MainCardsPreview from "./components/main-cards-preview/main-cards-preview.components";
 import SecondaryCardsPreview from "./components/secondary-cards-preview/secondary-cards-preview.components";
 
@@ -13,7 +16,10 @@ import {
 import GlobalStyles from "./GlobalStyles";
 import Header from "./components/header/header.component";
 
+import { Container } from "./App.styles";
+
 const App: React.FC = () => {
+  const { theme } = React.useContext(Context);
   const [mainCards, setMainCards] = React.useState<CardModel[]>(MAIN_CARDS);
   const [secondaryCardsOne, setSecondaryCardsOne] =
     React.useState<CardModel[]>(SECONDARY_CARDS_ONE);
@@ -99,17 +105,19 @@ const App: React.FC = () => {
 
   return (
     <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
-      <GlobalStyles />
-      <Container>
-        <Header />
-        <MainCardsPreview cards={mainCards} setMainCards={setMainCards} />
-        <SecondaryCardsPreview
-          cardsOne={secondaryCardsOne}
-          setSecondaryCardsOne={setSecondaryCardsOne}
-          cardsTwo={secondaryCardsTwo}
-          setSecondaryCardsTwo={setSecondaryCardsTwo}
-        />
-      </Container>
+      <ThemeProvider theme={theme ? lightTheme : darkTheme}>
+        <GlobalStyles />  
+        <Container>
+          <Header />
+          <MainCardsPreview cards={mainCards} setMainCards={setMainCards} />
+          <SecondaryCardsPreview
+            cardsOne={secondaryCardsOne}
+            setSecondaryCardsOne={setSecondaryCardsOne}
+            cardsTwo={secondaryCardsTwo}
+            setSecondaryCardsTwo={setSecondaryCardsTwo}
+          />
+        </Container>
+      </ThemeProvider>
     </DragDropContext>
   );
 };

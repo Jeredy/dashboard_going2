@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
         
         p, h1 {
-            color: #65687b;
+            color: ${({theme}) => theme.cardText};
             text-shadow: 0px 1px 3px rgba(94.1, 95.3, 98, 0.17);
         }
 

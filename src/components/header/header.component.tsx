@@ -1,6 +1,7 @@
 import React from "react";
 
 import ToggleThemeButton from "../button/toggle-theme-button.styles";
+import { Context } from "../context/context";
 
 import {
   Container,
@@ -8,10 +9,11 @@ import {
   Title,
   Text,
   ButtonContainer,
+  TextTheme,
 } from "./header.styles";
 
 const Header: React.FC = () => {
-  const [toggleTheme, setToggleTheme] = React.useState<boolean>(true);
+  const { theme, toggleTheme } = React.useContext(Context);
 
   return (
     <Container>
@@ -19,9 +21,9 @@ const Header: React.FC = () => {
         <Title>Social Midia Dashboard</Title>
         <Text>Total Followers: 23,004</Text>
       </TextContainer>
-      <ButtonContainer onClick={() => setToggleTheme(!toggleTheme)}>
-        <Text>Dark Theme</Text>
-        <ToggleThemeButton toggleTheme={toggleTheme} />
+      <ButtonContainer onClick={toggleTheme}>
+        <TextTheme>Dark Theme</TextTheme>
+        <ToggleThemeButton toggleSide={theme} />
       </ButtonContainer>
     </Container>
   );

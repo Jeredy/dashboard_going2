@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface Props {
-  toggleTheme: boolean;
+  toggleSide: boolean;
 }
 
 export const ToggleThemeButton = styled.div<Props>`
@@ -9,29 +9,28 @@ export const ToggleThemeButton = styled.div<Props>`
   width: 3.1rem;
   height: 1.39rem;
   border-radius: 5rem;
-  background: ${({ toggleTheme }) =>
-    toggleTheme
-      ? "linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%))"
-      : "hsl(230, 22%, 74%)"};
+  background: ${({ theme }) => theme.toggleButtonColorOff};
   align-items: center;
   position: relative;
-  box-shadow: 0px 1px 2px rgba(94.1, 95.3, 98, 0.4);
+  box-shadow: ${({ theme }) => theme.toggleButtonShadow};
 
   &:hover {
     cursor: pointer;
+    background: ${({ theme }) => theme.toggleButtonColorOn};
   }
 
   &:before {
     content: "";
     display: flex;
     position: absolute;
-    left: ${({ toggleTheme }) => (toggleTheme ? ".15rem" : "1.89rem")};
+    left: ${({ toggleSide }) => (toggleSide ? "1.89rem" : ".15rem")};
     width: 1.1rem;
     height: 1.1rem;
-    background: #f0f3fa;
+    background: ${({ theme }) => theme.toggleButtonCircle};
     border-radius: 50%;
     transition: 0.4s ease-in-out;
     box-shadow: 0px 1px 5px rgba(94.1, 95.3, 98, 0.4);
+    backdrop-filter: blur(2px);
   }
 `;
 

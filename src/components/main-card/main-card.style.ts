@@ -13,20 +13,20 @@ export const Container = styled.div<PropsContainer>`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => theme.cardShadow};
   width: 190px;
   height: 170px;
-  background: #f0f3fa;
+  background: ${({ theme }) => theme.cardBackgroundColor};
   border-radius: 0.2rem;
   margin: 0.7rem;
   position: relative;
 
   &:hover {
-    background: #e1e3f0;
+    background: ${({ theme }) => theme.cardBackgroundColorHover};
     cursor: pointer;
-    box-shadow: 0px 1px 5px rgba(94.1, 95.3, 98, 0.4);
+    box-shadow: ${({ theme }) => theme.cardShadowHover};
     transform: scale(1.02);
-    border: 1px solid #fff;
+    border: 1px solid #ededed;
   }
 
   &:before {
@@ -44,13 +44,13 @@ export const Container = styled.div<PropsContainer>`
 
 export const Title = styled.p`
   font-weight: 700;
-  color: #21242d;
-  font-size: 2.7rem; 
+  color: ${({ theme }) => theme.cardMainTitle};
+  font-size: 2.7rem;
 `;
 
 export const Text = styled.p`
   font-weight: 200;
-  font-size: .8rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
 `;
 
@@ -62,7 +62,8 @@ export const ScoreContainer = styled.div`
 `;
 
 export const Score = styled.p<PropsScore>`
-  color: ${({ positionUp }) => (positionUp ? "green" : "red")};
+  color: ${({ positionUp, theme }) =>
+    positionUp ? theme.scoreColorUp : theme.scoreColorDown};
   font-size: 0.7rem;
   margin-left: 0.2rem;
   text-transform: capitalize;
