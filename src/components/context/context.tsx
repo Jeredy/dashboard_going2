@@ -41,11 +41,45 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+const storageTheme = JSON.parse(localStorage.getItem("@theme")!);
+
+const storageMainCards = JSON.parse(localStorage.getItem("@mainCards")!);
+const storageSecondaryCardsOne = JSON.parse(
+  localStorage.getItem("@secondaryCardsOne")!
+);
+const storageSecondaryCardsTwo = JSON.parse(
+  localStorage.getItem("@secondaryCardsTwo")!
+);
+
+const mainCardsPosition = !!storageMainCards
+  ? MAIN_CARDS.map((item, index) => {
+      return MAIN_CARDS.filter(
+        (item) => item.id === storageMainCards[index].id
+      )[0];
+    })
+  : MAIN_CARDS;
+
+const secondaryCardsPositionOne = !!storageSecondaryCardsOne
+  ? SECONDARY_CARDS_ONE.map((item, index) => {
+      return SECONDARY_CARDS_ONE.filter(
+        (item) => item.id === storageSecondaryCardsOne[index].id
+      )[0];
+    })
+  : SECONDARY_CARDS_ONE;
+
+const secondaryCardsPositionTwo = !!storageSecondaryCardsTwo
+  ? SECONDARY_CARDS_TWO.map((item, index) => {
+      return SECONDARY_CARDS_TWO.filter(
+        (item) => item.id === storageSecondaryCardsTwo[index].id
+      )[0];
+    })
+  : SECONDARY_CARDS_TWO;
+
 const INITIAL_STATE: PropsContext = {
-  theme: true,
-  mainCards: MAIN_CARDS,
-  secondaryCardsOne: SECONDARY_CARDS_ONE,
-  secondaryCardsTwo: SECONDARY_CARDS_TWO,
+  theme: storageTheme.theme ?? true,
+  mainCards: mainCardsPosition,
+  secondaryCardsOne: secondaryCardsPositionOne,
+  secondaryCardsTwo: secondaryCardsPositionTwo,
 };
 
 const Context = React.createContext({
@@ -57,6 +91,8 @@ const Reducer = (state: PropsState, action: PropsAction) => {
 
   switch (type) {
     case Types.TOGGLE_THEME:
+      localStorage.setItem("@theme", JSON.stringify({ theme: !state.theme }));
+
       return {
         ...state,
         theme: !state.theme,
@@ -64,19 +100,49 @@ const Reducer = (state: PropsState, action: PropsAction) => {
     case Types.SET_MAIN_CARDS:
       let mainCards = (state.mainCards = payload!);
 
+      const mainDataPosition = mainCards.map((item, index) => {
+        return {
+          id: item.id,
+        };
+      });
+
+      localStorage.setItem("@mainCards", JSON.stringify(mainDataPosition));
+
       return {
         ...state,
         value: mainCards,
       };
     case Types.SET_SECONDARY_CARDS_ONE:
-      let secondaryCradsOne = (state.secondaryCardsOne = payload!);
+      let secondaryCardsOne = (state.secondaryCardsOne = payload!);
+
+      const secondaryOneDataPosition = secondaryCardsOne.map((item, index) => {
+        return {
+          id: item.id,
+        };
+      });
+
+      localStorage.setItem(
+        "@secondaryCardsOne",
+        JSON.stringify(secondaryOneDataPosition)
+      );
 
       return {
         ...state,
-        value: secondaryCradsOne,
+        value: secondaryCardsOne,
       };
     case Types.SET_SECONDARY_CARDS_TWO:
       let secondaryCradsTwo = (state.secondaryCardsTwo = payload!);
+
+      const secondaryTwoDataPosition = secondaryCradsTwo.map((item, index) => {
+        return {
+          id: item.id,
+        };
+      });
+
+      localStorage.setItem(
+        "@secondaryCardsTwo",
+        JSON.stringify(secondaryTwoDataPosition)
+      );
 
       return {
         ...state,
