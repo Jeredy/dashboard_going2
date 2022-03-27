@@ -1,4 +1,4 @@
-import { AreaChartModel } from "../components/charts/models/area-chart";
+import { AreaChartModel } from "../@models/ares-chart";
 
 export interface CardModel {
   id: number;

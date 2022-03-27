@@ -1,11 +1,12 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
-import { CardModel } from "../../models/cardModel";
 
 import { ReactComponent as ReactLogoUp } from "../../assets/images/icon-up.svg";
 import { ReactComponent as ReactLogoDown } from "../../assets/images/icon-down.svg";
-import icons from "../icons";
 import AreaChartComponent from "../charts/area-chart/area-chart.component";
+import { flipCard } from "../../utils/flip-card";
+import { Props } from "../@types/main-card";
+import icons from "../icons";
 
 import {
   Container,
@@ -19,23 +20,9 @@ import {
   FlipIcon,
 } from "./main-card.style";
 
-interface Props {
-  card: CardModel;
-  index: number;
-}
 
 const MainCard: React.FC<Props> = ({ card, index }) => {
   const [flip, setFlip] = React.useState<boolean>(true);
-
-  const flipCard = () => {
-    const cardClassList = document.querySelector(`.card-${card.id}`)?.classList;
-    cardClassList?.add("back");
-    setTimeout(() => {
-      cardClassList?.remove("back");
-      cardClassList?.add("front");
-      setFlip(!flip);
-    }, 300);
-  };
 
   return (
     <Draggable draggableId={card.id.toString()} index={index} key={card.id}>
@@ -61,7 +48,7 @@ const MainCard: React.FC<Props> = ({ card, index }) => {
 
                 <Score positionUp={card.positionUp}>{card.score}</Score>
               </ScoreContainer>
-              <FlipContainer onClick={flipCard}>
+              <FlipContainer onClick={() => flipCard(card, flip, setFlip)}>
                 {" "}
                 <FlipIcon />
               </FlipContainer>
@@ -69,7 +56,7 @@ const MainCard: React.FC<Props> = ({ card, index }) => {
           ) : (
             <>
               <AreaChartComponent cardChartData={card.chartData!} />
-              <FlipContainer onClick={flipCard}>
+              <FlipContainer onClick={() => flipCard(card, flip, setFlip)}>
                 {" "}
                 <FlipIcon />
               </FlipContainer>

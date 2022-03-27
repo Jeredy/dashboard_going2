@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-interface Props {
-  toggleSide: boolean;
-}
+import { Props } from "../@types/button";
 
 export const ToggleThemeButton = styled.div<Props>`
   display: flex;

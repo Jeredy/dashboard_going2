@@ -1,14 +1,15 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 
+import SecondaryCard from "../secondary-card/secondary-card.component";
+import { Context } from "../context/context";
+
 import {
   Container,
   CardsContainer,
   TitleContainer,
   Title,
 } from "./secondary-cards-preview.style";
-import SecondaryCard from "../secondary-card/secondary-card.component";
-import { Context } from "../context/context";
 
 const SecondaryCardsPreview: React.FC = () => {
   const { secondaryCardsOne, secondaryCardsTwo } = React.useContext(Context);

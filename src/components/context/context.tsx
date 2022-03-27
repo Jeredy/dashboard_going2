@@ -1,45 +1,19 @@
 import React from "react";
+
 import {
   MAIN_CARDS,
   SECONDARY_CARDS_ONE,
   SECONDARY_CARDS_TWO,
 } from "../../data/cards";
+import { CardModel } from "../@models/card-model";
 
-import { CardModel } from "../../models/cardModel";
-
-interface PropsContext {
-  theme: boolean;
-  mainCards: CardModel[];
-  secondaryCardsOne: CardModel[];
-  secondaryCardsTwo: CardModel[];
-  toggleTheme?: () => void;
-  setMainCards?: (data: CardModel[]) => void;
-  setSecondaryCardsOne?: (data: CardModel[]) => void;
-  setSecondaryCardsTwo?: (data: CardModel[]) => void;
-}
-
-interface PropsState {
-  theme: boolean;
-  mainCards: CardModel[];
-  secondaryCardsOne: CardModel[];
-  secondaryCardsTwo: CardModel[];
-}
-
-enum Types {
-  TOGGLE_THEME = "TOGGLE_THEME",
-  SET_MAIN_CARDS = "SET_MAIN_CARDS",
-  SET_SECONDARY_CARDS_ONE = "SET_SECONDARY_CARDS_ONE",
-  SET_SECONDARY_CARDS_TWO = "SET_SECONDARY_CARDS_TWO",
-}
-
-interface PropsAction {
-  type: Types;
-  payload?: CardModel[];
-}
-
-interface LayoutProps {
-  children: React.ReactNode;
-}
+import {
+  PropsContext,
+  PropsState,
+  PropsAction,
+  Types,
+  LayoutProps,
+} from "../@types/context";
 
 const storageTheme = JSON.parse(localStorage.getItem("@theme")!);
 
@@ -76,7 +50,7 @@ const secondaryCardsPositionTwo = !!storageSecondaryCardsTwo
   : SECONDARY_CARDS_TWO;
 
 const INITIAL_STATE: PropsContext = {
-  theme: storageTheme.theme ?? true,
+  theme: storageTheme?.theme ?? true,
   mainCards: mainCardsPosition,
   secondaryCardsOne: secondaryCardsPositionOne,
   secondaryCardsTwo: secondaryCardsPositionTwo,

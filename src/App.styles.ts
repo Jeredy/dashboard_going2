@@ -11,7 +11,7 @@ export const Container = styled.div`
   min-width: 100vw;
   background: ${({ theme }) => theme.backgroundColor};
   position: relative;
-  padding: 1.5rem 0rem 3rem 0rem;
+  padding-top: 1.5rem;
 
   &:before {
     content: "";

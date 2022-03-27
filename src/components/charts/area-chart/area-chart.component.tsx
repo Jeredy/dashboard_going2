@@ -1,12 +1,12 @@
 import React from "react";
 import { BarChart, Bar, Cell, ResponsiveContainer } from "recharts";
+
 import { Context } from "../../context/context";
-import { AreaChartModel } from "../models/area-chart";
+import { AreaChartModel } from "../../@models/ares-chart";
+import { PropsAreChart } from "../../@types/area-chart";
+
 import { Container, Text } from "./area-chart.styles";
 
-interface PropsAreChart {
-  cardChartData: AreaChartModel[];
-}
 
 const AreaChartComponent: React.FC<PropsAreChart> = ({ cardChartData }) => {
   const { theme } = React.useContext(Context);

@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-interface PropsScore {
-  positionUp: boolean;
-}
+import { PropsScore } from "../@types/secondary-card";
 
 export const Container = styled.div`
   display: flex;

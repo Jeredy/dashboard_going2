@@ -1,6 +1,6 @@
 import React from "react";
-import { TOTAL_FOLLOWERS } from "../../data/cards";
 
+import { TOTAL_FOLLOWERS } from "../../data/cards";
 import ToggleThemeButton from "../button/toggle-theme-button.styles";
 import { Context } from "../context/context";
 

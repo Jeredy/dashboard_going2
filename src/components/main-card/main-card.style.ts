@@ -1,14 +1,7 @@
 import styled from "styled-components";
 import { BiDotsVertical } from "react-icons/bi";
 
-interface PropsScore {
-  positionUp: boolean;
-}
-
-interface PropsContainer {
-  color: string;
-  flip: boolean;
-}
+import { PropsScore, PropsContainer } from "../@types/main-card";
 
 export const Container = styled.div<PropsContainer>`
   display: flex;

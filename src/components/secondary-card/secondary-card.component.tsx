@@ -1,10 +1,9 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
-import { CardModel } from "../../models/cardModel";
 
 import { ReactComponent as ReactLogoUp } from "../../assets/images/icon-up.svg";
 import { ReactComponent as ReactLogoDown } from "../../assets/images/icon-down.svg";
-
+import { Props } from "../@types/secondary-card";
 import icons from "../icons";
 
 import {
@@ -16,11 +15,6 @@ import {
   Score,
   SocialContainer,
 } from "./secondary-card.style";
-
-interface Props {
-  card: CardModel;
-  index: number;
-}
 
 const SecondaryCard: React.FC<Props> = ({ card, index }) => {
   return (
