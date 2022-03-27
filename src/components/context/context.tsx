@@ -35,17 +35,37 @@ const mainCardsPosition = !!storageMainCards
 
 const secondaryCardsPositionOne = !!storageSecondaryCardsOne
   ? SECONDARY_CARDS_ONE.map((item, index) => {
-      return SECONDARY_CARDS_ONE.filter(
+      let found;
+
+      found = SECONDARY_CARDS_ONE.filter(
         (item) => item.id === storageSecondaryCardsOne[index].id
       )[0];
+
+      if (!!!found) {
+        return SECONDARY_CARDS_TWO.filter(
+          (item) => item.id === storageSecondaryCardsOne[index].id
+        )[0];
+      }
+
+      return found;
     })
   : SECONDARY_CARDS_ONE;
 
 const secondaryCardsPositionTwo = !!storageSecondaryCardsTwo
   ? SECONDARY_CARDS_TWO.map((item, index) => {
-      return SECONDARY_CARDS_TWO.filter(
+      let found;
+
+      found = SECONDARY_CARDS_TWO.filter(
         (item) => item.id === storageSecondaryCardsTwo[index].id
       )[0];
+
+      if (!!!found) {
+        found = SECONDARY_CARDS_ONE.filter(
+          (item) => item.id === storageSecondaryCardsTwo[index].id
+        )[0];
+      }
+
+      return found;
     })
   : SECONDARY_CARDS_TWO;
 
