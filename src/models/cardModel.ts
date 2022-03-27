@@ -1,3 +1,5 @@
+import { AreaChartModel } from "../components/charts/models/area-chart";
+
 export interface CardModel {
   id: number;
   title: string;
@@ -7,4 +9,5 @@ export interface CardModel {
   icon: string;
   link?: string;
   color: string;
+  chartData?: AreaChartModel[];
 }

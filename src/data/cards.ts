@@ -1,6 +1,22 @@
 import { CardModel } from "../models/cardModel";
 
-export const TOTAL_FOLLOWERS:string = "23,004";
+const createChartData = () => {
+  const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"];
+
+  const data = Array.from({ length: 6 }, () =>
+    Math.floor(Math.random() * 6)
+  ).map((item, index) => {
+    return {
+      name: months[index],
+      new: Math.floor(Math.random() * 4000 + 1000),
+      loss: Math.floor(Math.random() * 4000 + 1000),
+    };
+  });
+
+  return data;
+};
+
+export const TOTAL_FOLLOWERS: string = "23,004";
 
 export const MAIN_CARDS: CardModel[] = [
   {
@@ -11,6 +27,7 @@ export const MAIN_CARDS: CardModel[] = [
     icon: "facebook",
     link: "@nathanf",
     color: "hsl(208, 92%, 53%)",
+    chartData: createChartData(),
   },
   {
     id: 2,
@@ -20,6 +37,7 @@ export const MAIN_CARDS: CardModel[] = [
     icon: "twitter",
     link: "@nathanf",
     color: "hsl(203, 89%, 53%)",
+    chartData: createChartData(),
   },
   {
     id: 3,
@@ -29,6 +47,7 @@ export const MAIN_CARDS: CardModel[] = [
     icon: "instagram",
     link: "@realnathanf",
     color: "linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%))",
+    chartData: createChartData(),
   },
   {
     id: 4,
@@ -38,6 +57,7 @@ export const MAIN_CARDS: CardModel[] = [
     icon: "youtube",
     link: "Nathan F.",
     color: "hsl(348, 97%, 39%)",
+    chartData: createChartData(),
   },
 ];
 

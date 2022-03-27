@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BiDotsVertical } from "react-icons/bi";
 
 interface PropsScore {
   positionUp: boolean;
@@ -6,6 +7,7 @@ interface PropsScore {
 
 interface PropsContainer {
   color: string;
+  flip: boolean;
 }
 
 export const Container = styled.div<PropsContainer>`
@@ -20,12 +22,19 @@ export const Container = styled.div<PropsContainer>`
   border-radius: 0.2rem;
   margin: 0.7rem;
   position: relative;
+  transition: transform ease-in-out 0.2s;
+
+  &.front {
+    transform: rotateY(0deg);
+  }
+
+  &.back {
+    transform: rotateY(90deg);
+  }
 
   &:hover {
     background: ${({ theme }) => theme.cardBackgroundColorHover};
-    cursor: pointer;
     box-shadow: ${({ theme }) => theme.cardShadowHover};
-    transform: scale(1.02);
     border: 1px solid #ededed;
   }
 
@@ -85,4 +94,26 @@ export const Social = styled.p`
   font-size: 0.7rem;
   margin-left: 0.4rem;
   text-transform: capitalize;
+`;
+
+export const FlipContainer = styled.div`
+  display: flex;
+  width: 1.4rem;
+  height: 1.4rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0.2rem;
+  top: 0.8rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const FlipIcon = styled(BiDotsVertical)`
+  display: flex;
+  height: 1.3rem;
+  width: 1.3rem;
+  fill: ${({ theme }) => theme.headerTitle};
 `;
